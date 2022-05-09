@@ -1,11 +1,12 @@
-# DDOT
+<h3>Defense Of The Tower (DOTT) </h3>
 
-## Kelompok RB-08 TUBES PBO
+<h4>Deskripsi Proyek :  </h4>
+Game ini bernama Defense Of The Tower yang menggunakan bahasa python dalam penggunaanya.</p>
 
-### Anggota Kelompok : 
-### ANDIKA RIZKI RAMADHAN 			    (120140002)
-### Pandu Wahyudi						        (120140010)
-### Akhmad Fahrizal						      (120140024)
-### Muhamad Bintang Fitriatuderajat	(120140040)
-### Sayyid Chalil Azra						  (120140242)
-### Muflihin Attami						      (120140243)
+Dependensi Paket : 
+
+Cara Bermain Game : 
+
+UML Class Diagram Proyek : 
+
+Kontributor Pengembangan Aplikasi : 
