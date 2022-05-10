@@ -258,3 +258,38 @@ def layar_game():
     Layar.blit(text, (150, 20))
     pygame.time.delay(30)
     pygame.display.update()
+
+# Looping Pada Game : 
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # InputPemain :
+    InputanPemain = pygame.key.get_pressed()
+
+    # Menembak :
+    pemain.menembak()
+
+    # GerakanPemain :
+    pemain.gerakan_pemain(InputanPemain)
+    pemain.lompat_pemain(InputanPemain)
+
+    # Data Musuh : 
+    if len(data_musuh) == 0:
+        musuh = Musuh(750, 300, speed)
+        data_musuh.append(musuh)
+        if speed <= 10:
+            speed += 1
+    for musuh in data_musuh:
+        musuh.gerak_musuh()
+        if musuh.keluar_layar() or musuh.health == 0:
+            data_musuh.remove(musuh)
+        if musuh.x < 50:
+            data_musuh.remove(musuh)
+            tower_health -= 1
+        if musuh.health == 0:
+            kills +=1
+            
+    layar_game()
