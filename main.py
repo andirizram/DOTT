@@ -107,6 +107,26 @@ class Musuh:
     def keluar_layar(self):
         return not (self.x >= -50 and self.x <= Lebar_layar + 50)
 
+#Kelas Peluru
+class Peluru:
+    def __init__(self, x, y, direction):
+        self.x = x + 15
+        self.y = y + 25
+        self.direction = direction
+
+    def draw_peluru(self):
+        win.blit(bullet_img, (self.x, self.y))
+
+    def gerak_peluru(self):
+        if self.direction == 1:
+            self.x += 15
+        if self.direction == -1:
+            self.x -= 15
+
+    def layar_mati(self):
+        return not (self.x >= 0 and self.x <= win_width)
+
+
 # Proses Utama Game : 
 # Instansiasi Dari Pemain, Musuh, dan Tower : 
 pemain = Pemain(250, 290)
