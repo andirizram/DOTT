@@ -65,6 +65,73 @@ gambar_background = pygame.transform.scale(pygame.image.load(os.path.join("Asset
 # Assets Tower :
 gambar_tower = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "tower.png")), (100,200))
 
+
+class Pemain:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.velx = 10
+        self.vely = 6
+        self.kanan = True
+        self.kiri = False
+        self.IndexGambar = 0
+        self.lompat = False
+        self.data_peluru = []
+        self.cool_down_count = 0
+        # Informasi Health Pada Pemain
+        self.hitbox = (self.x, self.y, 64, 64)
+        self.health = 30
+        self.lives = 1
+        self.alive = True
+
+    def gerakan_pemain(self, InputanPemain):
+        if InputanPemain[pygame.K_RIGHT] and self.x <= Lebar_layar - 62:
+            self.x += self.velx
+            self.kanan = True
+            self.kiri = False
+        elif InputanPemain[pygame.K_LEFT] and self.x >= 0:
+            self.x -= self.velx
+            self.kanan = False
+            self.kiri = True
+        else:
+            self.IndexGambar = 0
+
+    def draw(self, Layar):
+        self.hitbox = (self.x + 15, self.y + 15, 30, 40)
+        pygame.draw.rect(Layar, (255, 0, 0), (self.x + 15, self.y, 30, 10))
+        if self.health >= 0:
+            pygame.draw.rect(Layar, (0, 255, 0), (self.x + 15, self.y, self.health, 10))
+        if self.IndexGambar >= 9:
+            self.IndexGambar = 0
+        if self.kiri:
+            Layar.blit(arah_kiri_pemain[self.IndexGambar], (self.x, self.y))
+            self.IndexGambar += 1
+        if self.kanan:
+            Layar.blit(arah_kanan_pemain[self.IndexGambar], (self.x, self.y))
+            self.IndexGambar += 1
+
+    def lompat_pemain(self, InputanPemain):
+        if InputanPemain[pygame.K_SPACE] and self.lompat is False:
+            self.lompat = True
+        if self.lompat:
+            self.y -= self.vely * 4
+            self.vely -= 1
+        if self.vely < -6:
+            self.lompat = False
+            self.vely = 6
+
+    def arah(self):
+        if self.kanan:
+            return 1
+        if self.kiri:
+            return -1
+
+    def waktu_tunggu_peluru(self):
+        if self.cool_down_count >= 20:
+            self.cool_down_count = 0
+        elif self.cool_down_count > 0:
+            self.cool_down_count += 1
+
 #Kelas musuh :
 class Musuh:
     def __init__(self, x, y, speed):
