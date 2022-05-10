@@ -65,7 +65,7 @@ gambar_background = pygame.transform.scale(pygame.image.load(os.path.join("Asset
 # Assets Tower :
 gambar_tower = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "tower.png")), (100,200))
 
-
+#Kelas Pemain
 class Pemain:
     def __init__(self, x, y):
         self.x = x
@@ -83,7 +83,8 @@ class Pemain:
         self.health = 30
         self.lives = 1
         self.alive = True
-
+        
+    #def gerakan pemain berfungsi untuk membuat objek pemain dapat bergerak dengan keyboard arrow kanan dan kiri
     def gerakan_pemain(self, InputanPemain):
         if InputanPemain[pygame.K_RIGHT] and self.x <= Lebar_layar - 62:
             self.x += self.velx
@@ -95,7 +96,8 @@ class Pemain:
             self.kiri = True
         else:
             self.IndexGambar = 0
-
+    
+    #def draw berfungsi penentu dari gambar objek pemain yang akan ditampilkan 
     def draw(self, Layar):
         self.hitbox = (self.x + 15, self.y + 15, 30, 40)
         pygame.draw.rect(Layar, (255, 0, 0), (self.x + 15, self.y, 30, 10))
@@ -109,7 +111,8 @@ class Pemain:
         if self.kanan:
             Layar.blit(arah_kanan_pemain[self.IndexGambar], (self.x, self.y))
             self.IndexGambar += 1
-
+    
+    #def lompat pemain berfungsi untuk membuat objek pemain dapat melompat dengan menekan keyboard space
     def lompat_pemain(self, InputanPemain):
         if InputanPemain[pygame.K_SPACE] and self.lompat is False:
             self.lompat = True
@@ -119,13 +122,15 @@ class Pemain:
         if self.vely < -6:
             self.lompat = False
             self.vely = 6
-
+    
+    #def arah berfungsi sebagai arah objek pemain 
     def arah(self):
         if self.kanan:
             return 1
         if self.kiri:
             return -1
-
+    
+    #def waktu tunggu peluru berfungsi sebagai cooldown dari keluarnya peluru
     def waktu_tunggu_peluru(self):
         if self.cool_down_count >= 20:
             self.cool_down_count = 0
