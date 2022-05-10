@@ -64,3 +64,41 @@ gambar_background = pygame.transform.scale(pygame.image.load(os.path.join("Asset
 
 # Assets Tower :
 gambar_tower = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "tower.png")), (100,200))
+
+# Proses Utama Game : 
+# Instansiasi Dari Pemain, Musuh, dan Tower : 
+pemain = Pemain(250, 290)
+data_musuh = []
+speed = 3
+kills = 0
+tower_health = 5
+
+def layar_game():
+    Layar.fill((0, 0, 0))
+    Layar.blit(gambar_background, (0, 0))
+
+    # Menampilkan Pemain, Peluru, Musuh, dan Tower Pada Layar Game : 
+    pemain.draw(Layar)
+    for peluru in pemain.data_peluru:
+        peluru.menampilkan_peluru()
+    for musuh in data_musuh:
+        musuh.draw(Layar)
+    Layar.blit(gambar_tower, (-50, 170))
+
+    # Health Pemain : 
+    if pemain.alive == False:
+        Layar.fill((0, 0, 0))
+        tipe_font = pygame.tipe_font.Font('freesansbold.ttf', 32)
+        text = tipe_font.render('Kamu Kalah, Tekan R Untuk Merestart Game!', True, (255, 255, 255))
+        textRect = text.get_rect()
+        textRect.center = (Lebar_layar // 2, Tinggi_Layar // 2)
+        Layar.blit(text, textRect)
+        if InputanPemain[pygame.K_r]:
+            pemain.alive = True
+            pemain.lives = 1
+            pemain.health = 30
+    tipe_font = pygame.tipe_font.Font('freesansbold.ttf', 32)
+    text = tipe_font.render('Lives: ' + str(pemain.lives) + ' | Tower Health: '+ str(tower_health) + ' |Kills: '+ str(kills), True, (35, 255, 0))
+    Layar.blit(text, (150, 20))
+    pygame.time.delay(30)
+    pygame.display.update()
