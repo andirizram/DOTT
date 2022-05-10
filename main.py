@@ -136,6 +136,28 @@ class Pemain:
             self.cool_down_count = 0
         elif self.cool_down_count > 0:
             self.cool_down_count += 1
+    
+    #def menembak berfungsi untuk membuat objek dapat menembak dengan keyboard F
+    def menembak(self):
+        self.kena()
+        self.waktu_tunggu_peluru()
+        if (InputanPemain[pygame.K_f] and self.cool_down_count == 0):
+            peluru = Peluru(self.x, self.y, self.arah())
+            self.data_peluru.append(peluru)
+            self.cool_down_count = 1
+        for peluru in self.data_peluru:
+            peluru.gerak_musuh()
+            if peluru.keluar_layar():
+                self.data_peluru.remove(peluru)
+    
+    #def kena berfungsi ketika musuh mengenai pemain
+    def kena(self):
+        for musuh in data_musuh:
+            for peluru in self.data_peluru:
+                if musuh.hitbox[0] < peluru.x < musuh.hitbox[0] + musuh.hitbox[2] and musuh.hitbox[1] < peluru.y < \
+                        musuh.hitbox[1] + musuh.hitbox[3]:
+                    musuh.health -= 5
+                    pemain.data_peluru.remove(peluru)
 
 #Kelas musuh :
 class Musuh:
