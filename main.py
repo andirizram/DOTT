@@ -89,7 +89,7 @@ def layar_game():
     if pemain.alive == False:
         Layar.fill((0, 0, 0))
         font = pygame.tipe_font.Font('freesansbold.ttf', 32)
-        text = tipe_font.render('Kamu Kalah, Tekan R Untuk Merestart Game!', True, (255, 255, 255))
+        text = font.render('Kamu Kalah, Tekan R Untuk Merestart Game!', True, (255, 255, 255))
         textRect = text.get_rect()
         textRect.center = (Lebar_layar // 2, Tinggi_Layar // 2)
         Layar.blit(text, textRect)
@@ -97,8 +97,8 @@ def layar_game():
             pemain.alive = True
             pemain.lives = 1
             pemain.health = 30
-    tipe_font = pygame.tipe_font.Font('freesansbold.ttf', 32)
-    text = tipe_font.render('Lives: ' + str(pemain.lives) + ' | Tower Health: '+ str(tower_health) + ' |Kills: '+ str(kills), True, (35, 255, 0))
+    font = pygame.tipe_font.Font('freesansbold.ttf', 32)
+    text = font.render('Lives: ' + str(pemain.lives) + ' | Tower Health: '+ str(tower_health) + ' |Kills: '+ str(kills), True, (35, 255, 0))
     Layar.blit(text, (150, 20))
     pygame.time.delay(30)
     pygame.display.update()
