@@ -88,7 +88,7 @@ def layar_game():
     # Health Pemain : 
     if pemain.alive == False:
         Layar.fill((0, 0, 0))
-        tipe_font = pygame.tipe_font.Font('freesansbold.ttf', 32)
+        font = pygame.tipe_font.Font('freesansbold.ttf', 32)
         text = tipe_font.render('Kamu Kalah, Tekan R Untuk Merestart Game!', True, (255, 255, 255))
         textRect = text.get_rect()
         textRect.center = (Lebar_layar // 2, Tinggi_Layar // 2)
