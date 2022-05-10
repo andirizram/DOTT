@@ -65,6 +65,49 @@ gambar_background = pygame.transform.scale(pygame.image.load(os.path.join("Asset
 # Assets Tower :
 gambar_tower = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "tower.png")), (100,200))
 
+class Musuh:
+    def __init__(self, x, y, speed):
+        self.x = x
+        self.y = y
+        self.speed = speed
+        self.IndexGambar = 0
+        # Informasi Health Pada Musuh
+        self.hitbox = (self.x, self.y, 64, 64)
+        self.health = 30
+
+    def langkah_musuh(self):
+        if self.IndexGambar >= 33:
+            self.IndexGambar = 0
+
+    def draw(self, Layar):
+        self.hitbox = (self.x + 20, self.y + 10, 30, 45)
+        pygame.draw.rect(Layar, (255, 0, 0), (self.x + 15, self.y, 30, 10))
+        if self.health >= 0:
+            pygame.draw.rect(Layar, (0, 255, 0), (self.x + 15, self.y, self.health, 10))
+        self.langkah_musuh()
+        Layar.blit(arah_kiri_musuh[self.IndexGambar // 3], (self.x, self.y))
+        self.IndexGambar += 1
+
+    def gerak_musuh(self):
+        self.kena()
+        self.x -= speed
+
+
+    def kena(self):
+        if pemain.hitbox[0] < musuh.x + 32 < pemain.hitbox[0] + pemain.hitbox[2] and pemain.hitbox[1] < musuh.y + 32 < \
+                pemain.hitbox[1] + pemain.hitbox[3]:
+            if pemain.health > 0:
+                pemain.health -= 1
+                if pemain.health == 0 and pemain.lives > 0:
+                    pemain.lives -= 1
+                    pemain.health = 30
+                elif pemain.health == 0 and pemain.lives == 0:
+                    pemain.alive = False
+
+    def keluar_layar(self):
+        return not (self.x >= -50 and self.x <= Lebar_layar + 50)
+
+
 # Proses Utama Game : 
 # Instansiasi Dari Pemain, Musuh, dan Tower : 
 pemain = Pemain(250, 290)
