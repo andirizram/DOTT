@@ -209,16 +209,16 @@ class Peluru:
         self.y = y + 25
         self.direction = direction
 
-    def draw_peluru(self):
+    def menampilkan_peluru(self):
         Layar.blit(gambar_peluru, (self.x, self.y))
 
-    def gerak_peluru(self):
+    def gerak_musuh(self):
         if self.direction == 1:
             self.x += 15
         if self.direction == -1:
             self.x -= 15
 
-    def layar_mati(self):
+    def keluar_layar(self):
         return not (self.x >= 0 and self.x <= Lebar_layar)
 
 
