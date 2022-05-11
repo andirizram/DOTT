@@ -66,6 +66,9 @@ gambar_background = pygame.transform.scale(pygame.image.load(os.path.join("Asset
 # Assets Tower :
 gambar_tower = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "tower.png")), (100,200))
 
+#assets suara Peluru
+pop = pygame.mixer.Sound('pop.ogg')
+
 #Kelas Pemain
 class Pemain:
     def __init__(self, x, y):
@@ -143,6 +146,7 @@ class Pemain:
         self.kena()
         self.waktu_tunggu_peluru()
         if (InputanPemain[pygame.K_f] and self.cool_down_count == 0):
+            pop.play()
             peluru = Peluru(self.x, self.y, self.arah())
             self.data_peluru.append(peluru)
             self.cool_down_count = 1
