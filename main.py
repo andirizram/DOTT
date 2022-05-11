@@ -210,7 +210,7 @@ class Peluru:
         self.direction = direction
 
     def draw_peluru(self):
-        win.blit(bullet_img, (self.x, self.y))
+        Layar.blit(gambar_peluru, (self.x, self.y))
 
     def gerak_peluru(self):
         if self.direction == 1:
@@ -219,7 +219,7 @@ class Peluru:
             self.x -= 15
 
     def layar_mati(self):
-        return not (self.x >= 0 and self.x <= win_width)
+        return not (self.x >= 0 and self.x <= Lebar_Layar)
 
 
 # Proses Utama Game : 
