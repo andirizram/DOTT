@@ -3,6 +3,7 @@ import os
 
 # Membuat Layar Program
 pygame.init()
+pygame.display.set_caption('Defense Of The Tower (DOTT) TUBES PBO RB-08')
 Tinggi_Layar = 400
 Lebar_layar = 800
 Layar = pygame.display.set_mode((Lebar_layar, Tinggi_Layar))
