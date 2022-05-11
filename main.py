@@ -160,6 +160,25 @@ class Pemain:
                     musuh.health -= 5
                     pemain.data_peluru.remove(peluru)
 
+#Kelas Peluru
+class Peluru:
+    def __init__(self, x, y, direction):
+        self.x = x + 15
+        self.y = y + 25
+        self.direction = direction
+
+    def menampilkan_peluru(self):
+        Layar.blit(gambar_peluru, (self.x, self.y))
+
+    def gerak_musuh(self):
+        if self.direction == 1:
+            self.x += 15
+        if self.direction == -1:
+            self.x -= 15
+
+    def keluar_layar(self):
+        return not (self.x >= 0 and self.x <= Lebar_layar)
+
 #Kelas musuh :
 class Musuh:
     def __init__(self, x, y, speed):
@@ -201,26 +220,6 @@ class Musuh:
 
     def keluar_layar(self):
         return not (self.x >= -50 and self.x <= Lebar_layar + 50)
-
-#Kelas Peluru
-class Peluru:
-    def __init__(self, x, y, direction):
-        self.x = x + 15
-        self.y = y + 25
-        self.direction = direction
-
-    def menampilkan_peluru(self):
-        Layar.blit(gambar_peluru, (self.x, self.y))
-
-    def gerak_musuh(self):
-        if self.direction == 1:
-            self.x += 15
-        if self.direction == -1:
-            self.x -= 15
-
-    def keluar_layar(self):
-        return not (self.x >= 0 and self.x <= Lebar_layar)
-
 
 # Proses Utama Game : 
 # Instansiasi Dari Pemain, Musuh, dan Tower : 
