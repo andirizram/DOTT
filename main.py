@@ -219,7 +219,7 @@ class Peluru:
             self.x -= 15
 
     def layar_mati(self):
-        return not (self.x >= 0 and self.x <= Lebar_Layar)
+        return not (self.x >= 0 and self.x <= Lebar_layar)
 
 
 # Proses Utama Game : 
