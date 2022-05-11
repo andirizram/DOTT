@@ -15,13 +15,13 @@
 6. Muflihin Attami						      (120140243) 
 
 <h4>Deskripsi Proyek :  </h4>
-Game ini bernama Defense Of The Tower yang menggunakan bahasa python dalam penggunaanya.</p>
+Game ini bernama Defense Of The Tower yang menggunakan bahasa python dalam penggunaanya. Game ini menganut konsep permainan “Tower Defense” dimana player akan menjaga sebuah Menara dari serangan musuh yang datang. </p>
 
-Dependensi Paket : 
+<h4>Dependensi Paket : </h4>
+Paket library yang dibutuhkan untuk menjalankan aplikasi ini adalah library PyGame.
 
 <h4>Cara Bermain Game : </h4>
 Lawan musuh dengan cara menembaknya dan pertahankan tower agar tidak dibobol oleh musuh. Menggunakan arrow key untuk bergerak ke arah kanan dan kiri, tombol "Spacebar" pada keyboard untuk melompat, dan tombol "F" pada keyboard untuk menembak musuh.
 
-UML Class Diagram Proyek : 
+<h4>Kontributor Pengembangan Aplikasi : </h4>
 
-Kontributor Pengembangan Aplikasi : 
