@@ -225,7 +225,7 @@ class Musuh:
 # Instansiasi Dari Pemain, Musuh, dan Tower : 
 pemain = Pemain(250, 290)
 data_musuh = []
-speed = 3
+speed = 2
 kills = 0
 tower_health = 5
 
