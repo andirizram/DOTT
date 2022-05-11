@@ -67,7 +67,7 @@ gambar_background = pygame.transform.scale(pygame.image.load(os.path.join("Asset
 gambar_tower = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "tower.png")), (100,200))
 
 #assets suara Peluru
-pop = pygame.mixer.Sound('pop.ogg')
+pop = pygame.mixer.Sound("Assets/peluru","pop.ogg")
 
 #Kelas Pemain
 class Pemain:
