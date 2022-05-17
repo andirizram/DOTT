@@ -255,6 +255,9 @@ def layar_game():
             pemain.alive = True
             pemain.lives = 1
             pemain.health = 30
+            tower_health = 5
+            speed = 2
+        
     font = pygame.font.Font('freesansbold.ttf', 32)
     text = font.render('Lives: ' + str(pemain.lives) + ' | Tower Health: '+ str(tower_health) + ' |Kills: '+ str(kills), True, (35, 255, 0))
     Layar.blit(text, (150, 20))
