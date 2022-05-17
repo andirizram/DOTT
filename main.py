@@ -139,8 +139,8 @@ class Pemain:
             self.cool_down_count += 1
     
     #def menembak berfungsi untuk membuat objek dapat menembak dengan keyboard F
-    def menembak(self):
-        self.kena()
+    def menembak(self, hit):
+        self.kena(hit)
         self.waktu_tunggu_peluru()
         if (InputanPemain[pygame.K_f] and self.cool_down_count == 0):
             peluru = Peluru(self.x, self.y, self.arah())
@@ -152,12 +152,12 @@ class Pemain:
                 self.data_peluru.remove(peluru)
     
     #def kena berfungsi ketika musuh mengenai pemain
-    def kena(self):
+    def kena(self, hit):
         for musuh in data_musuh:
             for peluru in self.data_peluru:
                 if musuh.hitbox[0] < peluru.x < musuh.hitbox[0] + musuh.hitbox[2] and musuh.hitbox[1] < peluru.y < \
                         musuh.hitbox[1] + musuh.hitbox[3]:
-                    musuh.health -= 5
+                    musuh.health -= hit
                     pemain.data_peluru.remove(peluru)
 
 #Kelas Peluru
@@ -181,6 +181,7 @@ class Peluru:
 
 #Kelas musuh :
 class Musuh:
+    darah_musuh = 30
     def __init__(self, x, y, speed):
         self.x = x
         self.y = y
@@ -188,7 +189,7 @@ class Musuh:
         self.IndexGambar = 0
         # Informasi Health Pada Musuh
         self.hitbox = (self.x, self.y, 64, 64)
-        self.health = 30
+        self.health = Musuh.darah_musuh
 
     def langkah_musuh(self): 
         if self.IndexGambar >= 33:
@@ -257,7 +258,7 @@ def layar_game():
             pemain.health = 30
             tower_health = 5
             speed = 2
-        
+            Musuh.darah_musuh = 30
     font = pygame.font.Font('freesansbold.ttf', 32)
     text = font.render('Lives: ' + str(pemain.lives) + ' | Tower Health: '+ str(tower_health) + ' |Kills: '+ str(kills), True, (35, 255, 0))
     Layar.blit(text, (150, 20))
@@ -265,16 +266,17 @@ def layar_game():
     pygame.display.update()
 
 # Limit waktu untuk kenaikan kesulitan game
-limit_waktu=pygame.USEREVENT + 1
-pygame.time.set_timer=(limit_waktu,10000)
+limit_waktu = pygame.USEREVENT + 1
+pygame.time.set_timer = (limit_waktu, 10000)
 
 # Looping Pada Game : 
+hit = 5
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
- if event.type == limit_waktu:
+        if event.type == limit_waktu:
             print(limit_waktu)
             hit += 2
             Musuh.darah_musuh += 10
@@ -285,7 +287,7 @@ while running:
     InputanPemain = pygame.key.get_pressed()
 
     # Menembak :
-    pemain.menembak()
+    pemain.menembak(hit)
 
     # GerakanPemain :
     pemain.gerakan_pemain(InputanPemain)
@@ -304,12 +306,12 @@ while running:
                     speed += 1
             for musuh in data_musuh:
                 musuh.gerak_musuh()
-                if musuh.keluar_layar() or musuh.health == 0:
+                if musuh.keluar_layar() or musuh.health <= 0:
                     data_musuh.remove(musuh)
                 if musuh.x < 50:
                     data_musuh.remove(musuh)
                     tower_health -= 1
-                if musuh.health == 0:
+                if musuh.health <= 0:
                     kills +=1
             
     layar_game()
