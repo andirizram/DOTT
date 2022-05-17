@@ -281,19 +281,20 @@ while running:
         pemain.alive = False
 
     # Data Musuh : 
-    if len(data_musuh) == 0:
-        musuh = Musuh(750, 300, speed)
-        data_musuh.append(musuh)
-        if speed <= 10:
-            speed += 1
-    for musuh in data_musuh:
-        musuh.gerak_musuh()
-        if musuh.keluar_layar() or musuh.health == 0:
-            data_musuh.remove(musuh)
-        if musuh.x < 50:
-            data_musuh.remove(musuh)
-            tower_health -= 1
-        if musuh.health == 0:
-            kills +=1
+    if tower_health > 0:
+        if len(data_musuh) == 0:
+                musuh = Musuh(750, 300, speed)
+                data_musuh.append(musuh)
+                if speed <= 10:
+                    speed += 1
+            for musuh in data_musuh:
+                musuh.gerak_musuh()
+                if musuh.keluar_layar() or musuh.health == 0:
+                    data_musuh.remove(musuh)
+                if musuh.x < 50:
+                    data_musuh.remove(musuh)
+                    tower_health -= 1
+                if musuh.health == 0:
+                    kills +=1
             
     layar_game()
