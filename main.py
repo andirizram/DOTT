@@ -264,6 +264,10 @@ def layar_game():
     pygame.time.delay(30)
     pygame.display.update()
 
+# Limit waktu untuk kenaikan kesulitan game
+limit_waktu=pygame.USEREVENT + 1
+pygame.time.set_timer=(limit_waktu,10000)
+
 # Looping Pada Game : 
 running = True
 while running:
