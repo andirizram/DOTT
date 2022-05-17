@@ -276,6 +276,10 @@ while running:
     pemain.gerakan_pemain(InputanPemain)
     pemain.lompat_pemain(InputanPemain)
 
+    # Nyawa Tower :
+    if tower_health == 0:
+        pemain.alive = False
+
     # Data Musuh : 
     if len(data_musuh) == 0:
         musuh = Musuh(750, 300, speed)
