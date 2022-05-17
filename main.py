@@ -230,6 +230,8 @@ kills = 0
 tower_health = 5
 
 def layar_game():
+    global tower_health
+    global speed
     Layar.fill((0, 0, 0))
     Layar.blit(gambar_background, (0, 0))
 
