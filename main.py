@@ -274,6 +274,12 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+ if event.type == limit_waktu:
+            print(limit_waktu)
+            hit += 2
+            Musuh.darah_musuh += 10
+            if speed <= 10:
+               speed += 1
 
     # InputPemain :
     InputanPemain = pygame.key.get_pressed()
