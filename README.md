@@ -2,17 +2,20 @@
 
 <h4>Anggota Kelompok : </h4>
 
-1. Andika Rizki Ramadhan            (120140002) 
+1. Andika Rizki Ramadhan            (120140002) (andirizram)
 
-2. Pandu Wahyudi						        (120140010) 
+2. Pandu Wahyudi						        (120140010) (Pandu160402)
 
-3. Akhmad Fahrizal						      (120140024) 
+3. Akhmad Fahrizal						      (120140024) (afahrizal)
 
-4. Muhamad Bintang Fitriatuderajat	(120140040) 
+4. Muhamad Bintang Fitriatuderajat	(120140040) (Daenerysl)
 
-5. Sayyid Chalil Azra						    (120140242) 
+5. Sayyid Chalil Azra						    (120140242) (Sayyid-120140242)
 
-6. Muflihin Attami						      (120140243) 
+6. Muflihin Attami						      (120140243) (Muf29)
+
+<h4>Cara Menjalankan Kontainer :  </h4>
+Kontainer program dapat dijalankan dengan
 
 <h4>Deskripsi Proyek :  </h4>
 Game ini bernama Defense Of The Tower yang menggunakan bahasa python dalam penggunaanya. Game ini menganut konsep permainan “Tower Defense” dimana player akan menjaga sebuah Menara dari serangan musuh yang datang. </p>
@@ -24,4 +27,10 @@ Paket library yang dibutuhkan untuk menjalankan aplikasi ini adalah library PyGa
 Lawan musuh dengan cara menembaknya dan pertahankan tower agar tidak dibobol oleh musuh. Menggunakan arrow key untuk bergerak ke arah kanan dan kiri, tombol "Spacebar" pada keyboard untuk melompat, dan tombol "F" pada keyboard untuk menembak musuh.
 
 <h4>Kontributor Pengembangan Aplikasi : </h4>
+Andika Rizki Ramadhan             = Programmer;
+Pandu Wahyudi                     = Programmer;
+Akhmad Fahrizal                   = Programmer;
+Muhammad Bintang Fitriatuderajat  = Programmer;
+Sayyid Chalil Azra                = Programmer;
+Muflihin Attami                   = Programmer;
 
