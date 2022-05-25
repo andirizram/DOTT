@@ -228,11 +228,14 @@ pemain = Pemain(250, 290)
 data_musuh = []
 speed = 2
 kills = 0
-tower_health = 7
+tower_health = 5
 
 def layar_game():
     global tower_health
     global speed
+    global kills
+    global data_musuh
+    global pemain
     Layar.fill((0, 0, 0))
     Layar.blit(gambar_background, (0, 0))
 
@@ -245,7 +248,7 @@ def layar_game():
     Layar.blit(gambar_tower, (-50, 170))
 
     font = pygame.font.Font('freesansbold.ttf', 32)
-    text = font.render('Lives: ' + str(pemain.lives) + ' | Tower Health: '+ str(int(tower_health * 100 / 7)) + '% |Kills: '+ str(kills) , True, (35, 255, 0))
+    text = font.render('Lives: ' + str(pemain.lives) + ' | Tower Health: '+ str(int(tower_health * 100 / 5)) + '% |Kills: '+ str(kills) , True, (35, 255, 0))
     Layar.blit(text, (150, 20))
     
     # Health Pemain : 
@@ -261,12 +264,12 @@ def layar_game():
         scoreRect = score.get_rect(center = (Lebar_layar // 2, 190))
         Layar.blit(score, scoreRect)
         if InputanPemain[pygame.K_r]:
-            pemain.alive = True
-            pemain.lives = 1
-            pemain.health = 30
-            tower_health = 7
+            pemain = Pemain(250,290)
+            tower_health = 5
             speed = 2
             Musuh.darah_musuh = 30
+            data_musuh = []
+            kills = 0
     pygame.time.delay(30)
     pygame.display.update()
 
