@@ -133,7 +133,7 @@ class Pemain:
     
     #def waktu tunggu peluru berfungsi sebagai cooldown dari keluarnya peluru
     def waktu_tunggu_peluru(self):
-        if self.cool_down_count >= 20:
+        if self.cool_down_count >= 12:
             self.cool_down_count = 0
         elif self.cool_down_count > 0:
             self.cool_down_count += 1
@@ -228,7 +228,7 @@ pemain = Pemain(250, 290)
 data_musuh = []
 speed = 2
 kills = 0
-tower_health = 5
+tower_health = 7
 
 def layar_game():
     global tower_health
@@ -244,32 +244,38 @@ def layar_game():
         musuh.draw(Layar)
     Layar.blit(gambar_tower, (-50, 170))
 
+    font = pygame.font.Font('freesansbold.ttf', 32)
+    text = font.render('Lives: ' + str(pemain.lives) + ' | Tower Health: '+ str(int(tower_health * 100 / 7)) + '% |Kills: '+ str(kills) , True, (35, 255, 0))
+    Layar.blit(text, (150, 20))
+    
     # Health Pemain : 
     if pemain.alive == False:
         Layar.fill((0, 0, 0))
-        font = pygame.font.Font('freesansbold.ttf', 32)
-        text = font.render('Kamu Kalah, Tekan R Untuk Merestart Game!', True, (255, 255, 255))
+        font_text = pygame.font.Font('freesansbold.ttf', 20)
+        text = font_text.render('Kamu Kalah, Tekan R Untuk Merestart Game!', True, (255, 255, 255))
+        font_score = pygame.font.Font('freesansbold.ttf', 38)
+        score = font.render(f'Skor Kamu : {kills}', True, (255, 255, 255))
         textRect = text.get_rect()
-        textRect.center = (Lebar_layar // 2, Tinggi_Layar // 2)
+        textRect.center = (Lebar_layar // 2, 250)
         Layar.blit(text, textRect)
+        scoreRect = score.get_rect(center = (Lebar_layar // 2, 190))
+        Layar.blit(score, scoreRect)
         if InputanPemain[pygame.K_r]:
             pemain.alive = True
             pemain.lives = 1
             pemain.health = 30
-            tower_health = 5
+            tower_health = 7
             speed = 2
             Musuh.darah_musuh = 30
-    font = pygame.font.Font('freesansbold.ttf', 32)
-    text = font.render('Lives: ' + str(pemain.lives) + ' | Tower Health: '+ str(tower_health) + ' |Kills: '+ str(kills), True, (35, 255, 0))
-    Layar.blit(text, (150, 20))
     pygame.time.delay(30)
     pygame.display.update()
 
-# Limit waktu untuk kenaikan kesulitan game
+# Menambahkan Waktu :
 limit_waktu = pygame.USEREVENT + 1
-pygame.time.set_timer = (limit_waktu, 10000)
+pygame.time.set_timer(limit_waktu, 10000)
 
 # Looping Pada Game : 
+musuh_diam = False
 hit = 5
 running = True
 while running:
@@ -282,7 +288,7 @@ while running:
             Musuh.darah_musuh += 10
             if speed <= 10:
                speed += 1
-
+                
     # InputPemain :
     InputanPemain = pygame.key.get_pressed()
 
@@ -294,24 +300,24 @@ while running:
     pemain.lompat_pemain(InputanPemain)
 
     # Nyawa Tower :
-    if tower_health == 0:
+    if tower_health <= 0:
         pemain.alive = False
 
     # Data Musuh : 
-    if tower_health > 0:
+    if tower_health > 0 and pemain.alive:
         if len(data_musuh) == 0:
             musuh = Musuh(750, 300, speed)
             data_musuh.append(musuh)
-            if speed <= 10:
-                speed += 1
-            for musuh in data_musuh:
+            musuh_diam = False
+        for musuh in data_musuh:
+            if not musuh_diam:
                 musuh.gerak_musuh()
-                if musuh.keluar_layar() or musuh.health <= 0:
-                    data_musuh.remove(musuh)
-                if musuh.x < 50:
-                    data_musuh.remove(musuh)
-                    tower_health -= 1
-                if musuh.health <= 0:
-                    kills +=1
-    
+            if musuh.keluar_layar() or musuh.health <= 0:
+                data_musuh.remove(musuh)
+            if musuh.x <= 30:
+                musuh_diam = True
+                tower_health -= 0.01
+            if musuh.health <= 0:
+                kills +=1
+            
     layar_game()
