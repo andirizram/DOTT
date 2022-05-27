@@ -15,7 +15,16 @@
 6. Muflihin Attami						      (120140243) (Muf29)
 
 <h4>Cara Menjalankan Kontainer :  </h4>
-Kontainer program dapat dijalankan dengan
+Untuk menjalankan kontainer diperlukannya Docker Desktop for Windows dan XServer untuk Display Output pada Windows.
+(Klik Disini)(https://sourceforge.net/projects/vcxsrv/) untuk download XServer for Windows lalu install.
+Langkah - langkah yang harus dilakukan untuk menjalankan kontainer :
+1. Jalankan XServer dengan memilih "Multiple Windows" lalu klik next hingga finish.
+2. Clone Git ke desktop kalian lalu buka di Visual Studio Code.
+3. Buka folder yang sudah di clone ke desktop pada VSCode.
+4. Buka file Dockerfile lalu ketik perintah docker build berikut
+      
+      docker build -t dott .
+
 
 <h4>Deskripsi Proyek :  </h4>
 Game ini bernama Defense Of The Tower yang menggunakan bahasa python dalam penggunaanya. Game ini menganut konsep permainan “Tower Defense” dimana player akan menjaga sebuah Menara dari serangan musuh yang datang. </p>
