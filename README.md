@@ -47,10 +47,15 @@ Paket library yang dibutuhkan untuk menjalankan aplikasi ini adalah library PyGa
 Lawan musuh dengan cara menembaknya dan pertahankan tower agar tidak dibobol oleh musuh. Menggunakan arrow key untuk bergerak ke arah kanan dan kiri, tombol "Spacebar" pada keyboard untuk melompat, dan tombol "F" pada keyboard untuk menembak musuh.
 
 <h4>Kontributor Pengembangan Aplikasi : </h4>
-Andika Rizki Ramadhan             = Programmer;
-Pandu Wahyudi                     = Programmer;
-Akhmad Fahrizal                   = Programmer;
-Muhammad Bintang Fitriatuderajat  = Programmer;
-Sayyid Chalil Azra                = Programmer;
-Muflihin Attami                   = Programmer;
+1. Andika Rizki Ramadhan             = Programmer
+
+2. Pandu Wahyudi                     = Programmer
+
+3. Akhmad Fahrizal                   = Programmer
+
+4. Muhammad Bintang Fitriatuderajat  = Programmer
+
+5. Sayyid Chalil Azra                = Programmer
+
+6. Muflihin Attami                   = Programmer
 
