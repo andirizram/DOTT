@@ -37,6 +37,10 @@ Langkah - langkah yang harus dilakukan untuk menjalankan kontainer :
       
 6. Game akan jalan dan sudah bisa dimainkan.
 
+<h4> Video Demo Kontainer : </h4>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/_eAW2l46GD8/0.jpg)](https://www.youtube.com/watch?v=_eAW2l46GD8)
+
+
 <h4>Deskripsi Proyek :  </h4>
 Game ini bernama Defense Of The Tower yang menggunakan bahasa python dalam penggunaanya. Game ini menganut konsep permainan “Tower Defense” dimana player akan menjaga sebuah Menara dari serangan musuh yang datang. </p>
 
