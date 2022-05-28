@@ -38,7 +38,8 @@ Langkah - langkah yang harus dilakukan untuk menjalankan kontainer :
 6. Game akan jalan dan sudah bisa dimainkan.
 
 <h4> Video Demo Kontainer : </h4>
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/_eAW2l46GD8/0.jpg)](https://www.youtube.com/watch?v=_eAW2l46GD8)
+
+[![Video Demo](https://img.youtube.com/vi/_eAW2l46GD8/hqdefault.jpg)](https://youtu.be/_eAW2l46GD8)
 
 
 <h4>Deskripsi Proyek :  </h4>
@@ -51,6 +52,7 @@ Paket library yang dibutuhkan untuk menjalankan aplikasi ini adalah library PyGa
 Lawan musuh dengan cara menembaknya dan pertahankan tower agar tidak dibobol oleh musuh. Menggunakan arrow key untuk bergerak ke arah kanan dan kiri, tombol "Spacebar" pada keyboard untuk melompat, dan tombol "F" pada keyboard untuk menembak musuh.
 
 <h4>Kontributor Pengembangan Aplikasi : </h4>
+
 1. Andika Rizki Ramadhan             = Programmer
 
 2. Pandu Wahyudi                     = Programmer
