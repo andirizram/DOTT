@@ -66,10 +66,8 @@ gambar_background = pygame.transform.scale(pygame.image.load(os.path.join("Asset
 # Assets Tower :
 gambar_tower = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "tower.png")), (100,230))
 
-# Assets Musik :
-pygame.mixer.music.stop()
-pygame.mixer.music.unload() 
-pygame.mixer.music.load(os.path.join("Assets/audio", "game_sound.ogg"))
+# Assets Musik : 
+suara_game = pygame.mixer.music.load(os.path.join("Assets/audio", "game_sound.ogg"))
 pygame.mixer.music.play(-1)
 
 #Kelas Pemain
