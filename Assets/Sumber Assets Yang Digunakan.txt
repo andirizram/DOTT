@@ -15,5 +15,12 @@ https://opengameart.org/content/tower-v2
 Background
 https://opengameart.org/content/forest-background
 
-Sound
-Belum ada
+Sound : 
+1. Main Menu : 
+  https://opengameart.org/content/stereotypical-90s-space-shooter-music
+2. Game Sound :
+  https://opengameart.org/content/menu-music
+3. End Sound
+  https://opengameart.org/content/stereotypical-90s-space-shooter-music
+
+
