@@ -67,8 +67,16 @@ gambar_background = pygame.transform.scale(pygame.image.load(os.path.join("Asset
 gambar_tower = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "tower.png")), (100,230))
 
 # Assets Musik : 
-suara_game = pygame.mixer.music.load(os.path.join("Assets/audio", "game_sound.ogg"))
+pygame.mixer.music.stop()
+pygame.mixer.music.unload() 
+pygame.mixer.music.load(os.path.join("Assets/audio", "game_sound.ogg"))
+pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1)
+
+health_berkurang = pygame.mixer.Sound(os.path.join("Assets/audio", "kalah_sound.ogg"))
+musuh_terkena = pygame.mixer.Sound(os.path.join("Assets/audio", "mengalahkan_sound.ogg"))
+kena = pygame.mixer.Sound(os.path.join("Assets/audio", "hit.ogg"))
+
 
 #Kelas Pemain
 class Pemain:
@@ -147,6 +155,8 @@ class Pemain:
         self.kena(hit)
         self.waktu_tunggu_peluru()
         if (InputanPemain[pygame.K_f] and self.cool_down_count == 0):
+            kena.play()
+            pygame.mixer.Sound.set_volume(kena,0.1)
             peluru = Peluru(self.x, self.y, self.arah())
             self.data_peluru.append(peluru)
             self.cool_down_count = 1
@@ -162,6 +172,8 @@ class Pemain:
                 if musuh.hitbox[0] < peluru.x < musuh.hitbox[0] + musuh.hitbox[2] and musuh.hitbox[1] < peluru.y < \
                         musuh.hitbox[1] + musuh.hitbox[3]:
                     musuh.health -= hit
+                    musuh_terkena.play()
+                    pygame.mixer.Sound.set_volume(musuh_terkena,0.1)
                     pemain.data_peluru.remove(peluru)
 
 #Kelas Peluru
@@ -217,8 +229,12 @@ class Musuh:
                 pemain.hitbox[1] + pemain.hitbox[3]:
             if pemain.health > 0:
                 pemain.health -= 1
+                pygame.mixer.Sound.set_volume(health_berkurang,0.1)
+                health_berkurang.play()
                 if pemain.health == 0 and pemain.lives > 0:
                     pemain.lives -= 1
+                    pygame.mixer.Sound.set_volume(health_berkurang,0.1)
+                    health_berkurang.play()
                     pemain.health = 30
                 elif pemain.health == 0 and pemain.lives == 0:
                     pemain.alive = False
@@ -325,6 +341,8 @@ while running:
             if musuh.x <= 30:
                 musuh_diam = True
                 tower_health -= 0.01
+                health_berkurang.play()
+                pygame.mixer.Sound.set_volume(health_berkurang,0.1)
             if musuh.health <= 0:
                 kills +=1
             
