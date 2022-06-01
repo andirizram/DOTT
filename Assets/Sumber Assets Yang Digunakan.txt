@@ -22,5 +22,11 @@ Sound :
   https://opengameart.org/content/menu-music
 3. End Sound
   https://opengameart.org/content/stereotypical-90s-space-shooter-music
+4. Hit Sound : 
+  https://www.kenney.nl/assets/digital-audio
+5. Mengalahkan Sound : 
+  https://www.kenney.nl/assets/digital-audio
+6. Dikalahkan Sound : 
+  https://www.kenney.nl/assets/digital-audio
 
 
