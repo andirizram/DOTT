@@ -46,7 +46,7 @@ Langkah - langkah yang harus dilakukan untuk menjalankan kontainer :
 Game ini bernama Defense Of The Tower yang menggunakan bahasa python dalam penggunaanya. Game ini menganut konsep permainan “Tower Defense” dimana player akan menjaga sebuah Menara dari serangan musuh yang datang. </p>
 
 <h4>Dependensi Paket : </h4>
-Paket library yang dibutuhkan untuk menjalankan aplikasi ini adalah library PyGame.
+Paket library yang dibutuhkan untuk menjalankan aplikasi ini adalah library PyGame dan library PyGame Menu.
 
 <h4>Cara Bermain Game : </h4>
 Lawan musuh dengan cara menembaknya dan pertahankan tower agar tidak dibobol oleh musuh. Menggunakan arrow key untuk bergerak ke arah kanan dan kiri, tombol "Spacebar" pada keyboard untuk melompat, dan tombol "F" pada keyboard untuk menembak musuh.
