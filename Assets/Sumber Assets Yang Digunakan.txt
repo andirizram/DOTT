@@ -15,6 +15,9 @@ https://opengameart.org/content/tower-v2
 Background
 https://opengameart.org/content/forest-background
 
+Restart Background
+https://opengameart.org/content/background-6
+
 Sound : 
 1. Main Menu : 
   https://opengameart.org/content/stereotypical-90s-space-shooter-music
