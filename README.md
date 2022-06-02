@@ -49,6 +49,8 @@ Game ini bernama Defense Of The Tower yang menggunakan bahasa python dalam pengg
 Paket library yang dibutuhkan untuk menjalankan aplikasi ini adalah library PyGame dan library PyGame Menu.
 
 <h4>Cara serta Alur Bermain Game : </h4>
+Untuk bermain game silahkan jalankan file main_menu.py terlebih dahulu.
+
 Pada awal masuk ke dalam game, pemain akan disajikan sebuah main menu sederhana yang memiliki fungsi seperti mulai dan keluar. Lalu apabila pemain memilih mulai maka game akan langsung dimulai yaitu melawan musuh dengan cara menembaknya dan mempertahankan tower agar tidak dibobol oleh musuh. lalu pemain bisa menggunakan arrow key untuk bergerak ke arah kanan dan kiri, tombol "Spacebar" pada keyboard untuk melompat, dan tombol "F" pada keyboard untuk menembak musuh. Selanjutnya apabila health pada pemain atau tower telah habis maka game dengan sendiri nya akan berhenti dan menampilkan output score tertinggi pemain serta munculnya restrart screen untuk mengulang game tersebut. Apabila pemain sudah selesai bermain maka mereka bisa menekan tombol "X" pada pojok kanan atas.
 
 <h4>Kontributor Pengembangan Aplikasi : </h4>
