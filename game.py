@@ -65,6 +65,7 @@ gambar_background = pygame.transform.scale(pygame.image.load(os.path.join("Asset
 
 # Assets Tower :
 gambar_tower = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "tower.png")), (100,230))
+restart = pygame.image.load(os.path.join("Assets", "background_restart.jpg"))
 
 # Assets Musik : 
 pygame.mixer.music.stop()
@@ -274,6 +275,7 @@ def layar_game():
     # Health Pemain : 
     if pemain.alive == False:
         Layar.fill((0, 0, 0))
+        Layar.blit(restart, (0, 0))
         font_text = pygame.font.Font('freesansbold.ttf', 20)
         text = font_text.render('Kamu Kalah, Tekan R Untuk Merestart Game!', True, (255, 255, 255))
         font_score = pygame.font.Font('freesansbold.ttf', 38)
